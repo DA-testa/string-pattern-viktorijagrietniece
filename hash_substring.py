@@ -3,10 +3,10 @@
 def read_input():
 
     input_type = input().rstrip()
-    if input_type == 'I':
+    if input_type == 'i':
         pattern = input().rstrip()
         text = input().rstrip()
-    elif input_type == 'F':
+    elif input_type == 'f:
         with open("tests/06", "r") as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
@@ -21,7 +21,6 @@ def get_occurrences(pattern, text):
     occurrences = []
     p = len(pattern)
     t = len(text)
-    prime = 101
     base = 256
     mod = 10**9 + 7
     hash_pattern = 0
