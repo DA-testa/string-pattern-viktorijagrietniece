@@ -1,7 +1,8 @@
 # python3
 
 def read_input():
-
+    pattern = ''
+    text = ''
     input_type = input().rstrip()
     if input_type == 'i':
         pattern = input().rstrip()
