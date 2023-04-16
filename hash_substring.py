@@ -23,18 +23,18 @@ def print_occurrences(output):
     print(' '.join(map(str, output)))
 
 def get_occurrences(pattern, text):
-    occurrences = []
     pattern_len = len(pattern)
     text_len = len(text)
     pattern_hash = hash(pattern)
     text_hash = hash(text[:pattern_len])
+        occurrences = []
     
     for i in range(text_len - pattern_len + 1):
         if pattern_hash == text_hash and pattern == text[i : i + pattern_len]:
-            occurences.append(i)
+            occurrences.append(i)
         if i < text_len - pattern_len:
             text_hash = hash(text[i + 1 : i + pattern_len + 1])
-    return occurences
+    return occurrences
    
     
   
