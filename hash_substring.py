@@ -1,8 +1,7 @@
 # python3
 
 def read_input():
-    pattern = ''
-    text = ''
+  
     input_type = input().rstrip()
     if input_type == 'I':
         pattern = input().rstrip()
@@ -11,8 +10,13 @@ def read_input():
         with open("tests/06", "r") as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
- 
-    return (pattern, text)
+        return (pattern, text)
+    
+    else:
+        print("error")
+        retur n
+   
+    
 
 def print_occurrences(output):
     # this function should control output, it doesn't need any return
@@ -20,25 +24,20 @@ def print_occurrences(output):
 
 def get_occurrences(pattern, text):
     occurrences = []
-    p = len(pattern)
-    t = len(text)
-    base = 256
-    mod = 10**9 + 7
-    hash_pattern = 0
-    hash_text = 0
-    power = 1
+    pattern_len = len(pattern)
+    text_len = len(text)
+    pattern_hash = hash(pattern)
+    text_hash = hash(text[:pattern_len])
     
-    for i in range(p):
-       hash_pattern = (hash_pattern * base + ord(pattern[i])) % mod
-       hash_text = (hash_text * base + ord(text[i])) % mod
-       power = (power * base) % mod
-    for i in range(t - p + 1):
-         if hash_pattern == hash_text and text[i:i + p] == pattern:
-             occurrences.append(i)
-         if i < t - p:
-             hash_text = (base * (hash_text - ord(text[i]) * (power % mod)) + ord(text[i + p])) % mod
-             hash_text = (hash_text + mod) % mod
-    return occurrences
+    for i in range(text_len - pattern_len + 1):
+        if pattern_hash == text_hash and pattern == text[i : i + pattern_len]:
+            occurences.append(i)
+        if i < text_len - pattern_len:
+            text_hash = hash(text[i + 1 : i + pattern_len + 1])
+    return occurences
+   
+    
+  
 
 # this part launches the functions
 if __name__ == '__main__':
