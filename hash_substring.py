@@ -4,10 +4,10 @@ def read_input():
     pattern = ''
     text = ''
     input_type = input().rstrip()
-    if input_type == 'i':
+    if input_type == 'I':
         pattern = input().rstrip()
         text = input().rstrip()
-    elif input_type == 'f':
+    elif input_type == 'F':
         with open("tests/06", "r") as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
@@ -33,7 +33,7 @@ def get_occurrences(pattern, text):
        hash_text = (hash_text * base + ord(text[i])) % mod
        power = (power * base) % mod
     for i in range(t - p + 1):
-         if hash_pattern == hash_text and text[i:i + p] == pattern.lower():
+         if hash_pattern == hash_text and text[i:i + p] == pattern:
              occurrences.append(i)
          if i < t - p:
              hash_text = (base * (hash_text - ord(text[i]) * power) + ord(text[i + p])) % mod
