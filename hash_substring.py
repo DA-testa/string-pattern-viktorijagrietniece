@@ -14,7 +14,7 @@ def read_input():
     
     else:
         print("error")
-        retur n
+        return
    
     
 
