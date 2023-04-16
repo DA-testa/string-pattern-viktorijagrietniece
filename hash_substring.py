@@ -36,7 +36,7 @@ def get_occurrences(pattern, text):
          if hash_pattern == hash_text and text[i:i + p] == pattern:
              occurrences.append(i)
          if i < t - p:
-             hash_text = (base * (hash_text - ord(text[i]) * power) + ord(text[i + p])) % mod
+             hash_text = (base * (hash_text - ord(text[i]) * (power % mod)) + ord(text[i + p])) % mod
              hash_text = (hash_text + mod) % mod
     return occurrences
 
