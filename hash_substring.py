@@ -3,13 +3,16 @@
 def read_input():
   
     input_type = input().rstrip()
+    
     if input_type == 'I':
-        pattern = input().rstrip()
-        text = input().rstrip()
+        pattern = input().strip()
+        text = input().strip()
+        return (pattern, text)
+    
     elif input_type == 'F':
         with open("tests/06", "r") as file:
-            pattern = file.readline().rstrip()
-            text = file.readline().rstrip()
+            pattern = file.readline().strip()
+            text = file.readline().strip()
         return (pattern, text)
     
     else:
